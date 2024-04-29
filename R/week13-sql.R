@@ -60,10 +60,10 @@ performance
 ##Q5.
 s_manager<-dbGetQuery(conn,
 "SELECT o.type, e.employee_id, t.test_score
-FROM datascience_employees AS e
-INNER JOIN datascience_testscores AS t 
-ON e.employee_id = t.employee_id
-FULL JOIN datascience_offices AS o
-ON e.city = o.office
+FROM datascience_employees AS e 
+INNER JOIN datascience_testscores AS t ON e.employee_id = t.employee_id
+LEFT JOIN datascience_offices AS o ON e.city = o.office
 WHERE t.test_score IS NOT NULL
-ORDER BY o.type ASC, t.test_score DESC;")
+ORDER BY o.type, t.test_score DESC;")
+
+s_manager
