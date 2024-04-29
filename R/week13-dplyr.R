@@ -33,7 +33,7 @@ week13_tbl<-employees_tbl %>%
   inner_join(testscores_tbl, by="employee_id") %>%
   full_join(offices_tbl, by=c("city" = "office"))
 
-write_csv(week13_tbl, "../out/week13.csv")
+write_csv(week13_tbl, "../output/week13.csv")
 
 #Analysis
 ##1.Total number of managers
@@ -67,3 +67,4 @@ s_manager<-week13_tbl %>%
   select(type, employee_id, test_score) %>% 
   arrange(type, desc(test_score))
 s_manager
+
